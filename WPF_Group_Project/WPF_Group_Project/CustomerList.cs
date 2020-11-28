@@ -42,6 +42,11 @@ namespace WPF_Group_Project
             }
             return i;
         }
+        // Returns the customer list
+        public List<Customer> GetCustomers()
+        {
+            return this.customers;
+        }
 
         /*
          * Returns one larger string of all customers in list
