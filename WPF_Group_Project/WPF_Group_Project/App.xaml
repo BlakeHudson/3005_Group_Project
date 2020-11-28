@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:WPF_Group_Project"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         /* Testing pushing to github*/
+         
     </Application.Resources>
 </Application>

@@ -5,46 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Group_Project"
         mc:Ignorable="d"
-        Title="Truck Rental" Height="500" Width="600" ResizeMode="NoResize">
-   
-    <Canvas>
-        <Canvas.Resources>
- 
-        </Canvas.Resources>
-
-        <TextBox x:Name="Search" Canvas.Top="20" Canvas.Left="20" Height="20" Width="180" Text="Search..."/>
-       
-        <Button x:Name="Searchbtn" Content="→" Canvas.Top= "20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Canvas.Left="200" Height="20" Width="20" FontWeight="Bold" FontSize="10"
-                Click="Searchbtn_Click"/>
-       
-        <ListBox x:Name="CustomerList"  Height="392" Width="200" Canvas.Left="20" Canvas.Top="40"
-                 SelectionMode="Single" >
-
-            <ListBoxItem IsSelected="True">Customer template1</ListBoxItem>
-            <ListBoxItem>Customer template2</ListBoxItem>
-            <ListBoxItem>Customer template3</ListBoxItem>
-            <ListBoxItem>Customer template4</ListBoxItem>
-        </ListBox>
-        <TextBlock Name="Customerinfo"   Height="340" Width="320"  Canvas.Left="240" Canvas.Top="40">
-            
-        </TextBlock>
-
-
-        <Button x:Name="SelectBtn" Content="Select" Canvas.Left="250" Canvas.Bottom="40" Height="30" Width="60" 
-                Click="SelectBtn_Click"/>
-        <Button x:Name="EditBtn" Content="Edit" Canvas.Left="330" Canvas.Bottom="40" Height="30" Width="60"
-                Click="EditBtn_Click"/>
-        <Button x:Name="DeleteBtn" Content="Delete" Canvas.Left="410" Canvas.Bottom="40" Height="30" Width="60"
-                Click="DeleteBtn_Click"/>
-        <Button x:Name="AddBtn" Content="Add" Canvas.Left="490" Canvas.Bottom="40" Height="30" Width="60"
-                Click="AddBtn_Click"/>
-
-
-
-
-
-
-
-
-    </Canvas>
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        
+    </Grid>
 </Window>
