@@ -20,11 +20,15 @@ namespace WPF_Group_Project
     /// </summary>
     public partial class MainWindow : Window
     {
+        CustomerList customers = new CustomerList();
         public MainWindow()
         {
-            CustomerList customers = new CustomerList();
-            CustomersDisplay.ItemsSource = customers.GetCustomers();
-            InitializeComponent();
+          
+           customers.AddCustomer(new Customer("Erin", "Stock", 17, "3817 benjamin drive"));
+           customers.AddCustomer(new Customer("James", "Default", 22, "3818 benjamin drive"));
+           customers.AddCustomer(new Customer("Michael", "LastName", 21, "3819 benjamin drive"));
+           InitializeComponent();
+           UpdateDisplay();
             
         }
 
@@ -35,7 +39,8 @@ namespace WPF_Group_Project
 
         private void EditBtn_Click(object sender, RoutedEventArgs e)
         {
-            AddPrompt addPrompt = new AddPrompt();        
+            Customer selected = customers.GetCustomerAtIndex(CustomersDisplay.SelectedIndex);
+            AddPrompt addPrompt = new AddPrompt(selected.FirstName,selected.LastName,selected.Age,selected.Address);        
             addPrompt.Show();
 
             
@@ -45,7 +50,9 @@ namespace WPF_Group_Project
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
         {
-            CustomersDisplay.Items.RemoveAt(CustomersDisplay.SelectedIndex);
+
+            customers.RemoveCustomerAtIndex(CustomersDisplay.SelectedIndex);
+            UpdateDisplay();
             //this function removes the highlighted customer
         }
 
@@ -55,10 +62,28 @@ namespace WPF_Group_Project
             //This function opens a new window to add a new customer to the listbox source
         }
 
-        private void Searchbtn_Click(object sender, RoutedEventArgs e)
-        {
-            //This function will update listbox with a new list based on search query
-            Title = Search.Text;
+       
+        private void CustomersDisplay_SelectionChanged(object sender,RoutedEventArgs e){
+            UpdateDisplay();
+        }
+        private void SortOptions_SelectionChanged(object sender, RoutedEventArgs e){
+            
+            switch (SortOptions.SelectedIndex){
+                default:
+                    break;
+
+                    // Have sorting here
+            }
+        }
+        private void UpdateDisplay(){
+            
+           if(CustomersDisplay.SelectedIndex < customers.GetCustomers().Count){
+                Customerinfo.Text = "";
+                if(CustomersDisplay.SelectedIndex >= 0 )
+                    Customerinfo.Text = customers.GetCustomerAtIndex(CustomersDisplay.SelectedIndex).ToString();
+           }
+           CustomersDisplay.ItemsSource = customers.GetCustomerNames();
+             
         }
     }
 }
