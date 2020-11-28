@@ -22,7 +22,8 @@ namespace WPF_Group_Project
     {
         public MainWindow()
         {
-            
+            CustomerList customers = new CustomerList();
+            CustomersDisplay.ItemsSource = customers.GetCustomers();
             InitializeComponent();
             
         }
@@ -34,21 +35,23 @@ namespace WPF_Group_Project
 
         private void EditBtn_Click(object sender, RoutedEventArgs e)
         {
-            AddPrompt addPrompt = new AddPrompt();
+            AddPrompt addPrompt = new AddPrompt();        
             addPrompt.Show();
+
+            
             //this function will open the add window with the variables from the selected listbox member
             //It will probably have to delete the old member and just make a copy of it
         }
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
         {
-            CustomerList.Items.RemoveAt(CustomerList.SelectedIndex);
+            CustomersDisplay.Items.RemoveAt(CustomersDisplay.SelectedIndex);
             //this function removes the highlighted customer
         }
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
-            CustomerList.Items.Add("New Customer template");
+            CustomersDisplay.Items.Add("New Customer template");
             //This function opens a new window to add a new customer to the listbox source
         }
 
