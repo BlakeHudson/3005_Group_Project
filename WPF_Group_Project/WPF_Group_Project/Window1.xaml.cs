@@ -19,6 +19,7 @@ namespace WPF_Group_Project
     /// </summary>
     public partial class AddPrompt : Window
     {
+        public bool buildFlag = false;
         public AddPrompt()
         {
             InitializeComponent();
@@ -32,9 +33,9 @@ namespace WPF_Group_Project
             AddressBox.Text = address;
         }
 
-        private void CustomerBtn_Click(object sender, RoutedEventArgs e)
+        public void CustomerBtn_Click(object sender, RoutedEventArgs e)
         {
-           
+            Close();            
         }
     }
 }
