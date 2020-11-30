@@ -22,9 +22,9 @@ namespace WPF_Group_Project
             this.cost = cost;
         }
         // Returns true of truck is rented, false if available to be rented
-        public bool IsRented(Truck t)
+        public bool IsRented()
         {
-            if(t.Status == true)
+            if(Status == true)
             {
                 return true;
             }

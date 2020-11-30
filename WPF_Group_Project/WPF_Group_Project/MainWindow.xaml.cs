@@ -43,11 +43,11 @@ namespace WPF_Group_Project
         {
             Customer selected = customers.GetCustomerAtIndex(CustomersDisplay.SelectedIndex);
             customers.RemoveCustomerAtIndex(CustomersDisplay.SelectedIndex);
-            AddPrompt addPrompt = new AddPrompt(selected.FirstName,selected.LastName,selected.Age,selected.Address);
+            AddPrompt addPrompt = new AddPrompt(selected.FirstName,selected.LastName,selected.Id,selected.Address);
             
             addPrompt.ShowDialog();
   
-            customers.AddCustomer(new Customer(addPrompt.FirstNameBox.Text, addPrompt.LastNameBox.Text, int.Parse(addPrompt.BirthdayBox.Text), addPrompt.AddressBox.Text));
+            customers.AddCustomer(new Customer(addPrompt.FirstNameBox.Text, addPrompt.LastNameBox.Text, int.Parse(addPrompt.IDBox.Text), addPrompt.AddressBox.Text));
 
             UpdateDisplay();
               
@@ -69,7 +69,7 @@ namespace WPF_Group_Project
 
             addPrompt.ShowDialog();
 
-            customers.AddCustomer(new Customer(addPrompt.FirstNameBox.Text, addPrompt.LastNameBox.Text, int.Parse(addPrompt.BirthdayBox.Text), addPrompt.AddressBox.Text));
+            customers.AddCustomer(new Customer(addPrompt.FirstNameBox.Text, addPrompt.LastNameBox.Text, int.Parse(addPrompt.IDBox.Text), addPrompt.AddressBox.Text));
 
             UpdateDisplay();
             //This function opens a new window to add a new customer to the listbox source
