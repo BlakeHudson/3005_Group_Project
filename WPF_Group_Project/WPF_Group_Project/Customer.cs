@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace WPF_Group_Project
 {
+    [System.Serializable]
     public class Customer
     {
         public string FirstName { get; set; }
@@ -23,7 +24,7 @@ namespace WPF_Group_Project
         }
         public override string ToString()
         {
-            return LastName + ", " + FirstName + "\n Customer ID: " + Id + "\n Address: " + Address;
+            return "Last, First\n " + LastName + ", " + FirstName + "\n Customer ID: " + Id + "\n Address: " + Address;
         }
     }
 }
