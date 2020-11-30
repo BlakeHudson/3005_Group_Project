@@ -60,6 +60,10 @@
     <Compile Include="AddPrompt.xaml.cs">
       <DependentUpon>AddPrompt.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Inventory.cs" />
+    <Compile Include="RentalMgr.cs" />
+    <Compile Include="RentalTransaction.cs" />
+    <Compile Include="Truck.cs" />
     <Compile Include="TruckRental.xaml.cs">
       <DependentUpon>TruckRental.xaml</DependentUpon>
     </Compile>

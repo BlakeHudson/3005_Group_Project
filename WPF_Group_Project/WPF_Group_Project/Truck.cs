@@ -40,24 +40,16 @@ namespace WPF_Group_Project
         }
 
         //Sets Status to false when truck is returned from being rented
-        public void ReturnTruck(Truck t)
-        {
-            t.Status = false;
-        }
         public void ReturnTruck()
         {
             Status = false;
         }
         //Sets Status to true when truck is rented
-        public void RentedTruck(Truck t)
-        {
-            t.Status = true;
-        }
-
         public void RentedTruck()
         {
             Status = true;
         }
+
 
         public void SetSize(string s)
         {
@@ -118,7 +110,7 @@ namespace WPF_Group_Project
 
         public override string ToString()
         {
-            return "Id: " + this.Id + "size: " + GetSize(this.Size) + "Cost: " + this.cost;
+            return "Id: " + this.Id + "size: " + GetSize(this.Size) + "Rate per day: " + this.cost;
         }
     }
 }
