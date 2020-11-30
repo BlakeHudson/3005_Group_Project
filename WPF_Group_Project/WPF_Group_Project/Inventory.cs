@@ -47,7 +47,14 @@ namespace WPF_Group_Project
         public void SortTrucks()
         {
             List<Truck> sorted = new List<Truck>();
-            foreach(Truck t in this.trucks)
+            foreach (Truck t in this.trucks)
+            {
+                if (t.Size == 3)
+                {
+                    sorted.Add(t);
+                }
+            }
+            foreach (Truck t in this.trucks)
             {
                 if(t.Size == 2)
                 {
@@ -57,10 +64,6 @@ namespace WPF_Group_Project
             foreach (Truck t in this.trucks)
             {
                 if (t.Size == 1)
-                {
-                    sorted.Insert(0, t);
-                }
-                else
                 {
                     sorted.Add(t);
                 }
