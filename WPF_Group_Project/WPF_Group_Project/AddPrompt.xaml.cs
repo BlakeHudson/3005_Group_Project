@@ -35,6 +35,10 @@ namespace WPF_Group_Project
 
         public void CustomerBtn_Click(object sender, RoutedEventArgs e)
         {
+            if (FirstNameBox.Text == "" || LastNameBox.Text == "" || IDBox.Text == "" || AddressBox.Text == "")
+            {
+                return;
+            }
             Close();            
         }
     }

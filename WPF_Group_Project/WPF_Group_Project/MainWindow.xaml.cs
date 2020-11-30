@@ -112,6 +112,10 @@ namespace WPF_Group_Project
             addPrompt.ShowDialog();
 
 
+            if(addPrompt.FirstNameBox.Text == "" || addPrompt.LastNameBox.Text == "" || addPrompt.IDBox.Text =="" || addPrompt.AddressBox.Text == "")
+            {
+                return;
+            }
 
             customers.AddCustomer(new Customer(addPrompt.FirstNameBox.Text, addPrompt.LastNameBox.Text, int.Parse(addPrompt.IDBox.Text), addPrompt.AddressBox.Text));
             this.SaveCustomers();
