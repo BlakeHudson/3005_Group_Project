@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace WPF_Group_Project
 {
@@ -22,10 +25,17 @@ namespace WPF_Group_Project
         Inventory trucks = new Inventory();
         public TruckRental()
         {
+            
             InitializeComponent();
-            trucks.AddTruck(new Truck(1234, 3, true, 20.00));
-            trucks.AddTruck(new Truck(5678, 2, false, 18.00));
-            trucks.AddTruck(new Truck(9101, 1, true, 15.00));
+            if (!File.Exists("Trucks.dat"))
+            {
+                trucks.AddTruck(new Truck(1234, 3, true, 20.00));
+                trucks.AddTruck(new Truck(5678, 2, false, 18.00));
+                trucks.AddTruck(new Truck(9101, 1, true, 15.00));
+            } else
+            {
+                LoadTrucks();
+            }
             UpdateDisplay();
         }
         public TruckRental(Customer customer):this()
@@ -33,6 +43,26 @@ namespace WPF_Group_Project
             
             UserTitle.Content = customer.FirstName + " " + customer.LastName;
         }
+
+        public void LoadTrucks()
+        {
+            if (File.Exists("Trucks.dat"))
+            {
+                Stream s = File.OpenRead("Trucks.dat");
+                BinaryFormatter b = new BinaryFormatter();
+                trucks = (Inventory)b.Deserialize(s);
+                s.Close();
+            }
+        }
+
+        public void SaveTrucks()
+        {
+            Stream s = File.OpenWrite("Trucks.dat");
+            BinaryFormatter b = new BinaryFormatter();
+            b.Serialize(s, trucks);
+            s.Close();
+        }
+
         public void UpdateDisplay()
         {
             List<int> truckIDs= new List<int>();
@@ -73,8 +103,10 @@ namespace WPF_Group_Project
             TruckSize.ItemsSource = trucksize;
             TruckStatus.ItemsSource = truckStatus;
             TruckCost.ItemsSource = truckCost;
-
-
+            SaveTrucks();
+            TruckSize.SelectedIndex = TruckID.SelectedIndex;
+            TruckStatus.SelectedIndex = TruckID.SelectedIndex;
+            TruckCost.SelectedIndex = TruckID.SelectedIndex;
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -95,13 +127,17 @@ namespace WPF_Group_Project
             addPrompt.ShowDialog();
 
             trucks.AddTruck(new Truck(int.Parse(addPrompt.IDBox.Text), addPrompt.SizeBox.SelectedIndex+1, (addPrompt.AvailableButton.IsChecked==true), double.Parse( addPrompt.CostBox.Text)));
-
+            SaveTrucks();
             UpdateDisplay();
 
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
+            if(TruckID.SelectedIndex < 0)
+            {
+                return;
+            }
             Truck truckItem = trucks.GetTruck(TruckID.SelectedIndex);
             TruckAddPrompt addPrompt = new TruckAddPrompt(truckItem.Id,truckItem.Size,truckItem.IsRented(),truckItem.cost);
 
@@ -110,7 +146,7 @@ namespace WPF_Group_Project
 
             trucks.RemoveTruckAtIndex(TruckID.SelectedIndex);
             trucks.AddTruck(new Truck(int.Parse(addPrompt.IDBox.Text), addPrompt.SizeBox.SelectedIndex+1, (addPrompt.AvailableButton.IsChecked == true), double.Parse(addPrompt.CostBox.Text)));
-
+            SaveTrucks();
             UpdateDisplay();
 
         }

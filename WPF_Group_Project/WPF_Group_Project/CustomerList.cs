@@ -14,6 +14,11 @@ namespace WPF_Group_Project
             this.customers = new List<Customer>();
         }
 
+        public int GetCount()
+        {
+            return customers.Count();
+        }
+
         // Adds customer to end of list
         public void AddCustomer(Customer c)
         {
