@@ -34,7 +34,7 @@ namespace WPF_Group_Project
 
         private void SelectBtn_Click(object sender, RoutedEventArgs e)
         {
-            //new TruckWindow truckWindow(customers.GetCustomerAtIndex(CustomersDisplay.SelectedIndex));
+            TruckRental truckWindow = new TruckRental(customers.GetCustomerAtIndex(CustomersDisplay.SelectedIndex));
 
             //this will open the truck rental window for the selected listbox member
         }

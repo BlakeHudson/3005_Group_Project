@@ -57,8 +57,11 @@
     </ApplicationDefinition>
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerList.cs" />
-    <Compile Include="Window1.xaml.cs">
-      <DependentUpon>Window1.xaml</DependentUpon>
+    <Compile Include="AddPrompt.xaml.cs">
+      <DependentUpon>AddPrompt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TruckRental.xaml.cs">
+      <DependentUpon>TruckRental.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -72,7 +75,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Window1.xaml">
+    <Page Include="AddPrompt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TruckRental.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
