@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WPF_Group_Project
 {
-    class Customer
+    public class Customer
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

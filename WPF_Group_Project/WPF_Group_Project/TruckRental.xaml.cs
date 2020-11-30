@@ -15,26 +15,18 @@ using System.Windows.Shapes;
 namespace WPF_Group_Project
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Interaction logic for Window2.xaml
     /// </summary>
-    public partial class AddPrompt : Window
+    public partial class TruckRental : Window
     {
-        public AddPrompt()
+        public TruckRental()
         {
             InitializeComponent();
         }
-        public AddPrompt(string first ,string last, int age,string address )
+        public TruckRental(Customer customer)
         {
             InitializeComponent();
-            FirstNameBox.Text = first;
-            LastNameBox.Text = last;
-            BirthdayBox.Text = ""+age;
-            AddressBox.Text = address;
-        }
-
-        private void CustomerBtn_Click(object sender, RoutedEventArgs e)
-        {
-           
+            UserTitle.Content = customer.FirstName + " " + customer.LastName;
         }
     }
 }

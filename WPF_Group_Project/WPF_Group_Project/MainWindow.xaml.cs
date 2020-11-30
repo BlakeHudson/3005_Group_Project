@@ -34,16 +34,23 @@ namespace WPF_Group_Project
 
         private void SelectBtn_Click(object sender, RoutedEventArgs e)
         {
+            TruckRental truckWindow = new TruckRental(customers.GetCustomerAtIndex(CustomersDisplay.SelectedIndex));
+            truckWindow.ShowDialog();
             //this will open the truck rental window for the selected listbox member
         }
 
         private void EditBtn_Click(object sender, RoutedEventArgs e)
         {
             Customer selected = customers.GetCustomerAtIndex(CustomersDisplay.SelectedIndex);
-            AddPrompt addPrompt = new AddPrompt(selected.FirstName,selected.LastName,selected.Age,selected.Address);        
-            addPrompt.Show();
-
+            customers.RemoveCustomerAtIndex(CustomersDisplay.SelectedIndex);
+            AddPrompt addPrompt = new AddPrompt(selected.FirstName,selected.LastName,selected.Age,selected.Address);
             
+            addPrompt.ShowDialog();
+  
+            customers.AddCustomer(new Customer(addPrompt.FirstNameBox.Text, addPrompt.LastNameBox.Text, int.Parse(addPrompt.BirthdayBox.Text), addPrompt.AddressBox.Text));
+
+            UpdateDisplay();
+              
             //this function will open the add window with the variables from the selected listbox member
             //It will probably have to delete the old member and just make a copy of it
         }
@@ -58,7 +65,13 @@ namespace WPF_Group_Project
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
-            CustomersDisplay.Items.Add("New Customer template");
+            AddPrompt addPrompt = new AddPrompt();
+
+            addPrompt.ShowDialog();
+
+            customers.AddCustomer(new Customer(addPrompt.FirstNameBox.Text, addPrompt.LastNameBox.Text, int.Parse(addPrompt.BirthdayBox.Text), addPrompt.AddressBox.Text));
+
+            UpdateDisplay();
             //This function opens a new window to add a new customer to the listbox source
         }
 
@@ -66,15 +79,7 @@ namespace WPF_Group_Project
         private void CustomersDisplay_SelectionChanged(object sender,RoutedEventArgs e){
             UpdateDisplay();
         }
-        private void SortOptions_SelectionChanged(object sender, RoutedEventArgs e){
-            
-            switch (SortOptions.SelectedIndex){
-                default:
-                    break;
-
-                    // Have sorting here
-            }
-        }
+      
         private void UpdateDisplay(){
             
            if(CustomersDisplay.SelectedIndex < customers.GetCustomers().Count){
