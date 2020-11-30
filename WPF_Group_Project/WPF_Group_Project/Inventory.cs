@@ -23,6 +23,10 @@ namespace WPF_Group_Project
         // Removes a truck at index provided
         public void RemoveTruckAtIndex(int i)
         {
+            if (i >= trucks.Count())
+            {
+                throw new IndexOutOfRangeException("That truck number " + i.ToString() + " is out of range of current amount of trucks.");
+            }
            trucks.RemoveAt(i);
         }
 
@@ -33,6 +37,10 @@ namespace WPF_Group_Project
          */
         public int GetTruckIndex(int id)
         {
+            if (id >= trucks.Count())
+            {
+                throw new IndexOutOfRangeException("That truck id " + id.ToString() + " is out of range of current amount of trucks.");
+            }
             int i = -1;
             foreach (Truck t in trucks)
             {

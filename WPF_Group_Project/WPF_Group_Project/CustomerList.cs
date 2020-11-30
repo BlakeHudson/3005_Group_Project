@@ -44,6 +44,10 @@ namespace WPF_Group_Project
             return this.customers;
         }
         public Customer GetCustomerAtIndex(int i){
+            if (i >= customers.Count)
+            {
+                throw new System.IndexOutOfRangeException("Number " + i.ToString() + " is out of range of current amount of customers");
+            }
             return customers[i];
         }
          public List<string> GetCustomerNames()
