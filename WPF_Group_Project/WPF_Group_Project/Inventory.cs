@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace WPF_Group_Project
 {
+    [System.Serializable]
     class Inventory
     {
         private List<Truck> trucks;
