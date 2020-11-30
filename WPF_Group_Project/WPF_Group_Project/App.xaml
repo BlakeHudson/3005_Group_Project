@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:WPF_Group_Project"
              StartupUri="MainWindow.xaml">
-    <Application.Resources>
-         /* Testing pushing to github*/
-    </Application.Resources>
+	<Application.Resources>
+	</Application.Resources>
 </Application>
