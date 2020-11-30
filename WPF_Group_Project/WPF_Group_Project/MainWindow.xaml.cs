@@ -63,6 +63,10 @@ namespace WPF_Group_Project
 
         private void SelectBtn_Click(object sender, RoutedEventArgs e)
         {
+            if (CustomersDisplay.SelectedIndex < 0)
+            {
+                return;
+            }
             TruckRental truckWindow = new TruckRental(customers.GetCustomerAtIndex(CustomersDisplay.SelectedIndex));
             truckWindow.ShowDialog();
             //this will open the truck rental window for the selected listbox member
@@ -91,8 +95,12 @@ namespace WPF_Group_Project
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            if (CustomersDisplay.SelectedIndex < 0)
+            {
+                return;
+            }
             customers.RemoveCustomerAtIndex(CustomersDisplay.SelectedIndex);
+            this.SaveCustomers();
             UpdateDisplay();
             //this function removes the highlighted customer
         }
@@ -100,8 +108,10 @@ namespace WPF_Group_Project
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
             AddPrompt addPrompt = new AddPrompt();
-
+            addPrompt.IDBox.Text = customers.GetCount().ToString();
             addPrompt.ShowDialog();
+
+
 
             customers.AddCustomer(new Customer(addPrompt.FirstNameBox.Text, addPrompt.LastNameBox.Text, int.Parse(addPrompt.IDBox.Text), addPrompt.AddressBox.Text));
             this.SaveCustomers();
