@@ -125,7 +125,10 @@ namespace WPF_Group_Project
 
             
             addPrompt.ShowDialog();
-
+            if (addPrompt.IDBox.Text == "" || addPrompt.SizeBox.SelectedIndex < 0 || addPrompt.CostBox.Text == "")
+            {
+                return;
+            }
             trucks.AddTruck(new Truck(int.Parse(addPrompt.IDBox.Text), addPrompt.SizeBox.SelectedIndex+1, (addPrompt.AvailableButton.IsChecked==true), double.Parse( addPrompt.CostBox.Text)));
             SaveTrucks();
             UpdateDisplay();

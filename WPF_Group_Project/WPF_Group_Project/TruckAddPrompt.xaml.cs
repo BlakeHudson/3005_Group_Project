@@ -36,7 +36,7 @@ namespace WPF_Group_Project
         }
         public void BuildBtn_Click(object sender, RoutedEventArgs e)
         {
-            if(IDBox.Text == "" | SizeBox.SelectedIndex < 0 | CostBox.Text == "")
+            if(IDBox.Text == "" || SizeBox.SelectedIndex < 0 || CostBox.Text == "")
             {
                 return;
             }
