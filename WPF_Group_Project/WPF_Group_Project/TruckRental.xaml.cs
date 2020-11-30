@@ -25,7 +25,8 @@ namespace WPF_Group_Project
         }
         public TruckRental(Customer customer)
         {
-
+            InitializeComponent();
+            UserTitle.Content = customer.FirstName + " " + customer.LastName;
         }
     }
 }

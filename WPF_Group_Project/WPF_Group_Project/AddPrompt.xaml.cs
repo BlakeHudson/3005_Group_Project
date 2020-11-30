@@ -24,12 +24,12 @@ namespace WPF_Group_Project
         {
             InitializeComponent();
         }
-        public AddPrompt(string first ,string last, int age,string address )
+        public AddPrompt(string first ,string last, int id,string address )
         {
             InitializeComponent();
             FirstNameBox.Text = first;
             LastNameBox.Text = last;
-            BirthdayBox.Text = ""+age;
+            IDBox.Text = ""+id;
             AddressBox.Text = address;
         }
 
