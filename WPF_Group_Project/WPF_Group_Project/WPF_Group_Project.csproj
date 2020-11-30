@@ -58,6 +58,8 @@
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerList.cs" />
     <Compile Include="Inventory.cs" />
+    <Compile Include="RentalMgr.cs" />
+    <Compile Include="RentalTransaction.cs" />
     <Compile Include="Truck.cs" />
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>

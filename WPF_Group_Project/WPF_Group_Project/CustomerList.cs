@@ -26,12 +26,12 @@ namespace WPF_Group_Project
          * returns index of a matched customer
          * else returns -1 if no matching name in list
          */
-        public int GetCustomerIndex(string ln, string fn)
+        public int GetCustomerIndexById(int id)
         {
             int i = -1;
             foreach(Customer c in customers)
             {
-                if(c.LastName == ln && c.FirstName == fn)
+                if(c.Id == id)
                 {
                     return customers.IndexOf(c);
                 }
