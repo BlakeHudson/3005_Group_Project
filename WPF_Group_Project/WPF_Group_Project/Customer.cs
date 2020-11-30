@@ -21,5 +21,9 @@ namespace WPF_Group_Project
             this.Age = age;
             this.Address = ad;
         }
+        public override string ToString()
+        {
+            return LastName + ", " + FirstName + "\n Age: " + Age + "\n Address: " + Address;
+        }
     }
 }

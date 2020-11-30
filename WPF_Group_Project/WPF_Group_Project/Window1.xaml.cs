@@ -34,7 +34,7 @@ namespace WPF_Group_Project
 
         private void CustomerBtn_Click(object sender, RoutedEventArgs e)
         {
-
+           
         }
     }
 }

@@ -12,18 +12,19 @@
  
         </Canvas.Resources>
 
-        <TextBox x:Name="Search" Canvas.Top="20" Canvas.Left="20" Height="20" Width="180" Text="Search..."/>
+        
+      <ComboBox x:Name="SortOptions" Canvas.Top= "20" Canvas.Left="20" Height="20" Width="200" SelectionChanged ="SortOptions_SelectionChanged ">
+        
+        <ComboBoxItem>First Name</ComboBoxItem>
+        <ComboBoxItem>Last Name</ComboBoxItem>
+        <ComboBoxItem>Age</ComboBoxItem>
+        <ComboBoxItem>Address</ComboBoxItem>
+      </ComboBox>
        
-        <Button x:Name="Searchbtn" Content="→" Canvas.Top= "20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Canvas.Left="200" Height="20" Width="20" FontWeight="Bold" FontSize="10"
-                Click="Searchbtn_Click"/>
-       
-        <ListBox x:Name="CustomerList"  Height="392" Width="200" Canvas.Left="20" Canvas.Top="40"
-                 SelectionMode="Single" >
+        <ListBox x:Name="CustomersDisplay"  Height="392" Width="200" Canvas.Left="20" Canvas.Top="40"
+                 SelectionMode="Single" SelectionChanged = "CustomersDisplay_SelectionChanged">
 
-            <ListBoxItem IsSelected="True">Customer template1</ListBoxItem>
-            <ListBoxItem>Customer template2</ListBoxItem>
-            <ListBoxItem>Customer template3</ListBoxItem>
-            <ListBoxItem>Customer template4</ListBoxItem>
+          
         </ListBox>
         <TextBlock Name="Customerinfo"   Height="340" Width="320"  Canvas.Left="240" Canvas.Top="40">
             
