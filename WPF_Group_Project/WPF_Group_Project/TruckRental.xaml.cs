@@ -104,7 +104,9 @@ namespace WPF_Group_Project
             TruckStatus.ItemsSource = truckStatus;
             TruckCost.ItemsSource = truckCost;
             SaveTrucks();
-
+            TruckSize.SelectedIndex = TruckID.SelectedIndex;
+            TruckStatus.SelectedIndex = TruckID.SelectedIndex;
+            TruckCost.SelectedIndex = TruckID.SelectedIndex;
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
