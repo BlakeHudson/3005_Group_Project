@@ -90,7 +90,7 @@ namespace WPF_Group_Project
             string cl = "";
             foreach(Customer c in customers)
             {
-                cl += c.LastName + ", " + c.FirstName + "\n  age: " + c.Age + "\n address: " + c.Address;
+                cl += c.LastName + ", " + c.FirstName + "\n  age: " + c.Id + "\n address: " + c.Address;
             }
             return cl;
         }

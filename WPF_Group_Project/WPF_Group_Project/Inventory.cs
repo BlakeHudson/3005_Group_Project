@@ -30,6 +30,18 @@ namespace WPF_Group_Project
            trucks.RemoveAt(i);
         }
 
+        //returns trucks
+        public List<Truck> GetTrucks()
+        {
+            return trucks;
+        }
+
+        //returns truck
+        public Truck GetTruck(int index)
+        {
+            return trucks[index];
+        }
+
         /*
          * Searches for a Truck by ID 
          * returns index of a matched truck id num

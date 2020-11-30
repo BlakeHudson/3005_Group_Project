@@ -64,6 +64,9 @@
     <Compile Include="RentalMgr.cs" />
     <Compile Include="RentalTransaction.cs" />
     <Compile Include="Truck.cs" />
+    <Compile Include="TruckAddPrompt.xaml.cs">
+      <DependentUpon>TruckAddPrompt.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TruckRental.xaml.cs">
       <DependentUpon>TruckRental.xaml</DependentUpon>
     </Compile>
@@ -80,6 +83,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="AddPrompt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TruckAddPrompt.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

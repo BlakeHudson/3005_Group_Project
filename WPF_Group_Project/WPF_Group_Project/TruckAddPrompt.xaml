@@ -1,0 +1,31 @@
+﻿<Window x:Class="WPF_Group_Project.TruckAddPrompt"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Group_Project"
+        mc:Ignorable="d"
+        Title="Edit Truck" Height="400" Width="400" ResizeMode="NoResize">
+    <Canvas>
+        <Canvas>
+
+            <Label Canvas.Left="80" Canvas.Top="35" Content="ID" FontSize="20"/>
+            <TextBox x:Name="IDBox" Canvas.Left="150" Canvas.Top="40" Width="200" Height="30" FontSize="20"/>
+
+            <Label Canvas.Left="20" Canvas.Top="95" Content="Truck Size" FontSize="20"/>
+            <ComboBox x:Name="SizeBox" Canvas.Left="150" Canvas.Top="100" Width="200" Height="30" FontSize="20">
+                <ComboBoxItem>Small</ComboBoxItem>
+                <ComboBoxItem>Medium</ComboBoxItem>
+                <ComboBoxItem>Large</ComboBoxItem>
+            </ComboBox>
+
+            <Label Canvas.Left="30" Canvas.Top="155" Content="Available" FontSize="20"/>
+            <RadioButton x:Name="AvailableButton" Canvas.Left="150" Canvas.Top="165"  Click="AvailableButton_Click" />
+
+            <Label Content="Cost Per Day" Canvas.Left="10" Canvas.Top="215" FontSize="20"/>
+            <TextBox x:Name="CostBox" Canvas.Left="150" Canvas.Top="220" Width="200" Height="30" FontSize="20"/>
+
+            <Button x:Name="BuildBtn" Canvas.Left="160" Canvas.Top="282" Width="70" Height="40" FontSize="20"  Content="Save" Click="BuildBtn_Click" />
+        </Canvas>
+    </Canvas>
+</Window>

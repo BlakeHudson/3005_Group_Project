@@ -12,24 +12,19 @@
             
             <Label Content="Browsing trucks as: "/>
             <Label x:Name="UserTitle" Content="FirstName LastName" Foreground="BurlyWood" />
-            
+            <Button x:Name="AddButton" Content="Add Truck" Margin="10" Click="AddButton_Click"/>
+            <Button x:Name="EditButton" Content="Edit Truck" Margin="10" Click="EditButton_Click"/>
+
         </StackPanel>
         
-        <ComboBox x:Name="TruckSizeSelect" Canvas.Left="20" Canvas.Top="40" Width="80">
-
-            <ComboBoxItem>Any</ComboBoxItem>
-            <ComboBoxItem>Small</ComboBoxItem>
-            <ComboBoxItem>Medium</ComboBoxItem>
-            <ComboBoxItem>Large</ComboBoxItem>
         
-        </ComboBox>
         <Grid x:Name="TruckDisplay" Canvas.Top="80" Canvas.Left="20" Height="320" Width="760" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="20"/>
@@ -38,13 +33,12 @@
             <TextBox Text="Truck ID"  Background="Lightgray" Grid.Column="0" Grid.Row="0"/>
             <TextBox Text="Size" Background="Lightgray" Grid.Column="1" Grid.Row="0"/>
             <TextBox Text="Status" Background="Lightgray" Grid.Column="2" Grid.Row="0"/>
-            <TextBox Text="Cost" Background="Lightgray" Grid.Column="3" Grid.Row="0"/>
-            <TextBox Text="Customer" Background="Lightgray" Grid.Column="4" Grid.Row="0"/>
-            <ListBox x:Name="TruckID" Grid.Column="0" Grid.Row="1"/>
-            <ListBox x:Name="TruckSize" Grid.Column="1" Grid.Row="1"/>
-            <ListBox x:Name="TruckStatus"  Grid.Column="2" Grid.Row="1"/>
-            <ListBox x:Name="TruckCost" Grid.Column="3" Grid.Row="1"/>
-            <ListBox x:Name="TruckCustomer" Grid.Column="4" Grid.Row="1"/>
+            <TextBox Text="Cost per day" Background="Lightgray" Grid.Column="3" Grid.Row="0"/>
+            <ListBox x:Name="TruckID" Grid.Column="0" Grid.Row="1" SelectionChanged="ListBox_SelectionChanged"/>
+            <ListBox x:Name="TruckSize" Grid.Column="1" Grid.Row="1" SelectionChanged="ListBox_SelectionChanged"/>
+            <ListBox x:Name="TruckStatus"  Grid.Column="2" Grid.Row="1" SelectionChanged="ListBox_SelectionChanged"/>
+            <ListBox x:Name="TruckCost" Grid.Column="3" Grid.Row="1" SelectionChanged="ListBox_SelectionChanged"/>
+            
         </Grid>
     </Canvas>
 </Window>
