@@ -19,22 +19,23 @@ namespace WPF_Group_Project
     /// </summary>
     public partial class AddPrompt : Window
     {
+        public bool buildFlag = false;
         public AddPrompt()
         {
             InitializeComponent();
         }
-        public AddPrompt(string first ,string last, int age,string address )
+        public AddPrompt(string first ,string last, int id,string address )
         {
             InitializeComponent();
             FirstNameBox.Text = first;
             LastNameBox.Text = last;
-            BirthdayBox.Text = ""+age;
+            IDBox.Text = ""+id;
             AddressBox.Text = address;
         }
 
-        private void CustomerBtn_Click(object sender, RoutedEventArgs e)
+        public void CustomerBtn_Click(object sender, RoutedEventArgs e)
         {
-           
+            Close();            
         }
     }
 }

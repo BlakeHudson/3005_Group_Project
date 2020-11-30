@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Group_Project"
         mc:Ignorable="d"
-        Title="Customer Information" Height="400" Width="400">
+        Title="Customer Information" Height="400" Width="400" ResizeMode="NoResize">
     <Canvas>
         
         <Label Canvas.Left="20" Canvas.Top="35" Content="First Name" FontSize="20"/>
@@ -14,8 +14,8 @@
         <Label Canvas.Left="20" Canvas.Top="95" Content="Last Name" FontSize="20"/>
         <TextBox x:Name="LastNameBox" Canvas.Left="150" Canvas.Top="100" Width="200" Height="30" FontSize="20"/>
         
-        <Label Canvas.Left="80" Canvas.Top="155" Content="Age" FontSize="20"/>
-        <TextBox x:Name="BirthdayBox" Canvas.Left="150" Canvas.Top="160" Width="200" Height="30" FontSize="20"/>
+        <Label Canvas.Left="80" Canvas.Top="155" Content="ID" FontSize="20"/>
+        <TextBox x:Name="IDBox" Canvas.Left="150" Canvas.Top="160" Width="200" Height="30" FontSize="20"/>
 
         <Label Content="Address" Canvas.Left="50" Canvas.Top="215" FontSize="20"/>
         <TextBox x:Name="AddressBox" Canvas.Left="150" Canvas.Top="220" Width="200" Height="30" FontSize="20"/>

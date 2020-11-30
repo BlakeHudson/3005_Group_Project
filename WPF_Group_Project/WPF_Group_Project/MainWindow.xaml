@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Group_Project"
         mc:Ignorable="d"
-        Title="Truck Rental" Height="500" Width="600" ResizeMode="NoResize">
+        Title="Truck Rental" Height="450" Width="600" ResizeMode="NoResize">
    
     <Canvas>
         <Canvas.Resources>
@@ -13,31 +13,25 @@
         </Canvas.Resources>
 
         
-      <ComboBox x:Name="SortOptions" Canvas.Top= "20" Canvas.Left="20" Height="20" Width="200" SelectionChanged ="SortOptions_SelectionChanged ">
-        
-        <ComboBoxItem>First Name</ComboBoxItem>
-        <ComboBoxItem>Last Name</ComboBoxItem>
-        <ComboBoxItem>Age</ComboBoxItem>
-        <ComboBoxItem>Address</ComboBoxItem>
-      </ComboBox>
+      
        
-        <ListBox x:Name="CustomersDisplay"  Height="392" Width="200" Canvas.Left="20" Canvas.Top="40"
+        <ListBox x:Name="CustomersDisplay"  Height="380" Width="200" Canvas.Left="20" Canvas.Top="20"
                  SelectionMode="Single" SelectionChanged = "CustomersDisplay_SelectionChanged">
 
           
         </ListBox>
-        <TextBlock Name="Customerinfo"   Height="340" Width="320"  Canvas.Left="240" Canvas.Top="40">
+        <TextBlock Name="Customerinfo"   Height="340" Width="320"  Canvas.Left="240" Canvas.Top="20">
             
         </TextBlock>
 
 
-        <Button x:Name="SelectBtn" Content="Select" Canvas.Left="250" Canvas.Bottom="40" Height="30" Width="60" 
+        <Button x:Name="SelectBtn" Content="Select" Canvas.Left="250" Canvas.Bottom="23" Height="30" Width="60" 
                 Click="SelectBtn_Click"/>
-        <Button x:Name="EditBtn" Content="Edit" Canvas.Left="330" Canvas.Bottom="40" Height="30" Width="60"
+        <Button x:Name="EditBtn" Content="Edit" Canvas.Left="330" Canvas.Bottom="23" Height="30" Width="60"
                 Click="EditBtn_Click"/>
-        <Button x:Name="DeleteBtn" Content="Delete" Canvas.Left="410" Canvas.Bottom="40" Height="30" Width="60"
+        <Button x:Name="DeleteBtn" Content="Delete" Canvas.Left="410" Canvas.Bottom="23" Height="30" Width="60"
                 Click="DeleteBtn_Click"/>
-        <Button x:Name="AddBtn" Content="Add" Canvas.Left="490" Canvas.Bottom="40" Height="30" Width="60"
+        <Button x:Name="AddBtn" Content="Add" Canvas.Left="490" Canvas.Bottom="23" Height="30" Width="60"
                 Click="AddBtn_Click"/>
 
 
