@@ -15,7 +15,7 @@
         <TextBox x:Name="LastNameBox" Canvas.Left="150" Canvas.Top="100" Width="200" Height="30" FontSize="20"/>
         
         <Label Canvas.Left="80" Canvas.Top="155" Content="ID" FontSize="20"/>
-        <TextBox x:Name="IDBox" Canvas.Left="150" Canvas.Top="160" Width="200" Height="30" FontSize="20"/>
+        <TextBox x:Name="IDBox" Canvas.Left="150" Canvas.Top="160" Width="200" Height="30" FontSize="20" IsEnabled="False"/>
 
         <Label Content="Address" Canvas.Left="50" Canvas.Top="215" FontSize="20"/>
         <TextBox x:Name="AddressBox" Canvas.Left="150" Canvas.Top="220" Width="200" Height="30" FontSize="20"/>

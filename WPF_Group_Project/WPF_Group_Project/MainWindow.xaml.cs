@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace WPF_Group_Project
 {
@@ -23,13 +26,39 @@ namespace WPF_Group_Project
         CustomerList customers = new CustomerList();
         public MainWindow()
         {
-          
-           customers.AddCustomer(new Customer("Erin", "Stock", 17, "3817 benjamin drive"));
-           customers.AddCustomer(new Customer("James", "Default", 22, "3818 benjamin drive"));
-           customers.AddCustomer(new Customer("Michael", "LastName", 21, "3819 benjamin drive"));
+            if (!File.Exists("Customers.dat"))
+            {
+                customers.AddCustomer(new Customer("Erin", "Stock", 17, "3817 benjamin drive"));
+                customers.AddCustomer(new Customer("James", "Default", 22, "3818 benjamin drive"));
+                customers.AddCustomer(new Customer("Michael", "LastName", 21, "3819 benjamin drive"));
+            }
+            else
+            {
+                this.LoadCustomers();
+            }
+           
            InitializeComponent();
            UpdateDisplay();
             
+        }
+
+        public void LoadCustomers()
+        {
+            if (File.Exists("Customers.dat"))
+            {
+                Stream s = File.OpenRead("Customers.dat");
+                BinaryFormatter b = new BinaryFormatter();
+                customers = (CustomerList)b.Deserialize(s);
+                s.Close();
+            }
+        }
+
+        public void SaveCustomers()
+        {
+            Stream s = File.OpenWrite("Customers.dat");
+            BinaryFormatter b = new BinaryFormatter();
+            b.Serialize(s, customers);
+            s.Close();
         }
 
         private void SelectBtn_Click(object sender, RoutedEventArgs e)
@@ -41,6 +70,10 @@ namespace WPF_Group_Project
 
         private void EditBtn_Click(object sender, RoutedEventArgs e)
         {
+            if(CustomersDisplay.SelectedIndex < 0)
+            {
+                return;
+            }
             Customer selected = customers.GetCustomerAtIndex(CustomersDisplay.SelectedIndex);
             customers.RemoveCustomerAtIndex(CustomersDisplay.SelectedIndex);
             AddPrompt addPrompt = new AddPrompt(selected.FirstName,selected.LastName,selected.Id,selected.Address);
@@ -48,6 +81,7 @@ namespace WPF_Group_Project
             addPrompt.ShowDialog();
   
             customers.AddCustomer(new Customer(addPrompt.FirstNameBox.Text, addPrompt.LastNameBox.Text, int.Parse(addPrompt.IDBox.Text), addPrompt.AddressBox.Text));
+            this.SaveCustomers();
 
             UpdateDisplay();
               
@@ -70,7 +104,7 @@ namespace WPF_Group_Project
             addPrompt.ShowDialog();
 
             customers.AddCustomer(new Customer(addPrompt.FirstNameBox.Text, addPrompt.LastNameBox.Text, int.Parse(addPrompt.IDBox.Text), addPrompt.AddressBox.Text));
-
+            this.SaveCustomers();
             UpdateDisplay();
             //This function opens a new window to add a new customer to the listbox source
         }

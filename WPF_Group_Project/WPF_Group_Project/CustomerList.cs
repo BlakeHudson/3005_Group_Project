@@ -2,36 +2,16 @@
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
+
 namespace WPF_Group_Project
 {
+    [System.Serializable]
     class CustomerList
     {
         private List<Customer> customers;
         public CustomerList()
         {
             this.customers = new List<Customer>();
-        }
-
-        public void LoadCustomers()
-        {
-            if (File.Exists("Customer.dat"))
-            {
-                Stream s = File.OpenRead("Customer.dat");
-                BinaryFormatter b = new BinaryFormatter();
-                customers = (List<Customer>)b.Deserialize(s);
-                s.Close();
-            }
-        }
-
-        public void SaveCustomers()
-        {
-            Stream s = File.OpenWrite("Customer.dat");
-            BinaryFormatter b = new BinaryFormatter();
-            b.Serialize(s, customers);
-            s.Close();
         }
 
         // Adds customer to end of list
